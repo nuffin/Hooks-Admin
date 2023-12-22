@@ -12,7 +12,7 @@ const errorRouter: Array<RouteObject> = [
 			title: "403页面",
 			key: "403"
 		}
-	},
+	} as RouteObject,
 	{
 		path: "/404",
 		element: lazyLoad(React.lazy(() => import("@/components/ErrorMessage/404"))),
@@ -21,7 +21,7 @@ const errorRouter: Array<RouteObject> = [
 			title: "404页面",
 			key: "404"
 		}
-	},
+	} as RouteObject,
 	{
 		path: "/500",
 		element: lazyLoad(React.lazy(() => import("@/components/ErrorMessage/500"))),
@@ -30,7 +30,7 @@ const errorRouter: Array<RouteObject> = [
 			title: "500页面",
 			key: "500"
 		}
-	}
+	} as RouteObject
 ];
 
 export default errorRouter;

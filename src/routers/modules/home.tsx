@@ -18,9 +18,9 @@ const homeRouter: Array<RouteObject> = [
 					title: "首页",
 					key: "home"
 				}
-			}
+			} as RouteObject
 		]
-	}
+	} as RouteObject
 ];
 
 export default homeRouter;

@@ -19,7 +19,7 @@ const linkRouter: Array<RouteObject> = [
 					title: "Gitee 仓库",
 					key: "gitee"
 				}
-			},
+			} as RouteObject,
 			{
 				path: "/link/github",
 				element: lazyLoad(React.lazy(() => import("@/views/link/github/index"))),
@@ -28,7 +28,7 @@ const linkRouter: Array<RouteObject> = [
 					title: "GitHub 仓库",
 					key: "github"
 				}
-			},
+			} as RouteObject,
 			{
 				path: "/link/juejin",
 				element: lazyLoad(React.lazy(() => import("@/views/link/juejin/index"))),
@@ -37,7 +37,7 @@ const linkRouter: Array<RouteObject> = [
 					title: "掘金文档",
 					key: "juejin"
 				}
-			},
+			} as RouteObject,
 			{
 				path: "/link/myBlog",
 				element: lazyLoad(React.lazy(() => import("@/views/link/myBlog/index"))),
@@ -46,9 +46,9 @@ const linkRouter: Array<RouteObject> = [
 					title: "个人博客",
 					key: "myBlog"
 				}
-			}
+			} as RouteObject
 		]
-	}
+	} as RouteObject
 ];
 
 export default linkRouter;

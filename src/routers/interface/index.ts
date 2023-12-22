@@ -13,4 +13,6 @@ export interface RouteObject {
 	path?: string;
 	meta?: MetaProps;
 	isLink?: string;
+
+	[Symbol.iterator](): IterableIterator<[any, any]>;
 }

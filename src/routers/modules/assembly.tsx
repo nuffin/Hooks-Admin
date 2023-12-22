@@ -19,7 +19,7 @@ const assemblyRouter: Array<RouteObject> = [
 					title: "引导页",
 					key: "guide"
 				}
-			},
+			} as RouteObject,
 			{
 				path: "/assembly/svgIcon",
 				element: lazyLoad(React.lazy(() => import("@/views/assembly/svgIcon/index"))),
@@ -28,7 +28,7 @@ const assemblyRouter: Array<RouteObject> = [
 					title: "SVG 图标",
 					key: "svgIcon"
 				}
-			},
+			} as RouteObject,
 			{
 				path: "/assembly/selectIcon",
 				element: lazyLoad(React.lazy(() => import("@/views/assembly/selectIcon/index"))),
@@ -37,7 +37,7 @@ const assemblyRouter: Array<RouteObject> = [
 					title: "Icon 选择",
 					key: "selectIcon"
 				}
-			},
+			} as RouteObject,
 			{
 				path: "/assembly/batchImport",
 				element: lazyLoad(React.lazy(() => import("@/views/assembly/batchImport/index"))),
@@ -46,9 +46,9 @@ const assemblyRouter: Array<RouteObject> = [
 					title: "批量导入数据",
 					key: "selectIcon"
 				}
-			}
+			} as RouteObject
 		]
-	}
+	} as RouteObject
 ];
 
 export default assemblyRouter;

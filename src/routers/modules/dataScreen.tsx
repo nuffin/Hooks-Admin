@@ -12,7 +12,7 @@ const dataScreenRouter: Array<RouteObject> = [
 			title: "数据大屏",
 			key: "dataScreen"
 		}
-	}
+	} as RouteObject
 ];
 
 export default dataScreenRouter;

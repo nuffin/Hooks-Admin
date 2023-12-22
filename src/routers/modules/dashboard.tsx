@@ -19,7 +19,7 @@ const dashboardRouter: Array<RouteObject> = [
 					title: "数据可视化",
 					key: "dataVisualize"
 				}
-			},
+			} as RouteObject,
 			{
 				path: "/dashboard/embedded",
 				element: lazyLoad(React.lazy(() => import("@/views/dashboard/embedded/index"))),
@@ -28,9 +28,9 @@ const dashboardRouter: Array<RouteObject> = [
 					title: "内嵌页面",
 					key: "embedded"
 				}
-			}
+			} as RouteObject
 		]
-	}
+	} as RouteObject
 ];
 
 export default dashboardRouter;
