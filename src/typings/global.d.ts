@@ -1,3 +1,5 @@
+import { PluginOption } from "vite";
+
 // * Menu
 declare namespace Menu {
 	interface MenuOptions {
@@ -21,7 +23,7 @@ declare interface ViteEnv {
 	VITE_DROP_CONSOLE: boolean;
 	VITE_PROXY_URL: string;
 	VITE_BUILD_GZIP: boolean;
-	VITE_REPORT: boolean;
+	VITE_REPORT: boolean | PluginOption;
 }
 
 // * Dropdown MenuInfo
