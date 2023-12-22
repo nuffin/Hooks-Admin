@@ -6,6 +6,7 @@ import { setMenuList } from "@/redux/modules/menu/action";
 import { setBreadcrumbList } from "@/redux/modules/breadcrumb/action";
 import { setAuthRouter } from "@/redux/modules/auth/action";
 import { getMenuList } from "@/api/modules/login";
+import { Menu as MenuNamespace } from "@/typings/global";
 import { connect } from "react-redux";
 import type { MenuProps } from "antd";
 import * as Icons from "@ant-design/icons";
@@ -57,8 +58,8 @@ const LayoutMenu = (props: any) => {
 	};
 
 	// 处理后台返回菜单 key 值为 antd 菜单需要的 key 值
-	const deepLoopFloat = (menuList: Menu.MenuOptions[], newArr: MenuItem[] = []) => {
-		menuList.forEach((item: Menu.MenuOptions) => {
+	const deepLoopFloat = (menuList: MenuNamespace.MenuOptions[], newArr: MenuItem[] = []) => {
+		menuList.forEach((item: MenuNamespace.MenuOptions) => {
 			// 下面判断代码解释 *** !item?.children?.length   ==>   (!item.children || item.children.length === 0)
 			if (!item?.children?.length) return newArr.push(getItem(item.title, item.path, addIcon(item.icon!)));
 			newArr.push(getItem(item.title, item.path, addIcon(item.icon!), deepLoopFloat(item.children)));

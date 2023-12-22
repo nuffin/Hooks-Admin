@@ -1,4 +1,5 @@
 import { RouteObject } from "@/routers/interface";
+import { Menu as MenuNamespace } from "@/typings/global";
 
 /**
  * @description 获取localStorage
@@ -96,10 +97,10 @@ export const searchRoute = (path: string, routes: RouteObject[] = []): RouteObje
  * @param {Array} menuList 菜单列表
  * @returns array
  */
-export const getBreadcrumbList = (path: string, menuList: Menu.MenuOptions[]) => {
+export const getBreadcrumbList = (path: string, menuList: MenuNamespace.MenuOptions[]) => {
 	let tempPath: any[] = [];
 	try {
-		const getNodePath = (node: Menu.MenuOptions) => {
+		const getNodePath = (node: MenuNamespace.MenuOptions) => {
 			tempPath.push(node);
 			// 找到符合条件的节点，通过throw终止掉递归
 			if (node.path === path) {
@@ -129,9 +130,9 @@ export const getBreadcrumbList = (path: string, menuList: Menu.MenuOptions[]) =>
  * @param {String} menuList 当前菜单列表
  * @returns object
  */
-export const findAllBreadcrumb = (menuList: Menu.MenuOptions[]): { [key: string]: any } => {
+export const findAllBreadcrumb = (menuList: MenuNamespace.MenuOptions[]): { [key: string]: any } => {
 	let handleBreadcrumbList: any = {};
-	const loop = (menuItem: Menu.MenuOptions) => {
+	const loop = (menuItem: MenuNamespace.MenuOptions) => {
 		// 下面判断代码解释 *** !item?.children?.length   ==>   (item.children && item.children.length > 0)
 		if (menuItem?.children?.length) menuItem.children.forEach(item => loop(item));
 		else handleBreadcrumbList[menuItem.path] = getBreadcrumbList(menuItem.path, menuList);
@@ -146,8 +147,8 @@ export const findAllBreadcrumb = (menuList: Menu.MenuOptions[]): { [key: string]
  * @param {Array} newArr 菜单的一维数组
  * @return array
  */
-export function handleRouter(routerList: Menu.MenuOptions[], newArr: string[] = []) {
-	routerList.forEach((item: Menu.MenuOptions) => {
+export function handleRouter(routerList: MenuNamespace.MenuOptions[], newArr: string[] = []) {
+	routerList.forEach((item: MenuNamespace.MenuOptions) => {
 		typeof item === "object" && item.path && newArr.push(item.path);
 		item.children && item.children.length && handleRouter(item.children, newArr);
 	});

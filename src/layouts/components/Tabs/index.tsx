@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { setTabsList } from "@/redux/modules/tabs/action";
 import { routerArray } from "@/routers";
 import { searchRoute } from "@/utils/util";
+import { Menu as MenuNamespace } from "@/typings/global";
 import MoreButton from "./components/MoreButton";
 import "./index.less";
 
@@ -43,7 +44,7 @@ const LayoutTabs = (props: any) => {
 	const delTabs = (tabPath?: string) => {
 		if (tabPath === HOME_URL) return;
 		if (pathname === tabPath) {
-			tabsList.forEach((item: Menu.MenuOptions, index: number) => {
+			tabsList.forEach((item: MenuNamespace.MenuOptions, index: number) => {
 				if (item.path !== pathname) return;
 				const nextTab = tabsList[index + 1] || tabsList[index - 1];
 				if (!nextTab) return;
@@ -51,7 +52,7 @@ const LayoutTabs = (props: any) => {
 			});
 		}
 		message.success("你删除了Tabs标签 😆😆😆");
-		setTabsList(tabsList.filter((item: Menu.MenuOptions) => item.path !== tabPath));
+		setTabsList(tabsList.filter((item: MenuNamespace.MenuOptions) => item.path !== tabPath));
 	};
 
 	return (
@@ -68,7 +69,7 @@ const LayoutTabs = (props: any) => {
 							delTabs(path as string);
 						}}
 					>
-						{tabsList.map((item: Menu.MenuOptions) => {
+						{tabsList.map((item: MenuNamespace.MenuOptions) => {
 							return (
 								<TabPane
 									key={item.path}

@@ -1,4 +1,5 @@
 import type { SizeType } from "antd/lib/config-provider/SizeContext";
+import { Menu as MenuNamespace } from "@/typings/global";
 
 /* themeConfigProp */
 export interface ThemeConfigProp {
@@ -22,13 +23,13 @@ export interface GlobalState {
 /* MenuState */
 export interface MenuState {
 	isCollapse: boolean;
-	menuList: Menu.MenuOptions[];
+	menuList: MenuNamespace.MenuOptions[];
 }
 
 /* TabsState */
 export interface TabsState {
 	tabsActive: string;
-	tabsList: Menu.MenuOptions[];
+	tabsList: MenuNamespace.MenuOptions[];
 }
 
 /* BreadcrumbState */

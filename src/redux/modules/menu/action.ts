@@ -1,6 +1,7 @@
 import * as types from "@/redux/mutation-types";
 import { getMenuList } from "@/api/modules/login";
 import { Dispatch } from "react";
+import { Menu as MenuNamespace } from "@/typings/global";
 
 // * updateCollapse
 export const updateCollapse = (isCollapse: boolean) => ({
@@ -9,7 +10,7 @@ export const updateCollapse = (isCollapse: boolean) => ({
 });
 
 // * setMenuList
-export const setMenuList = (menuList: Menu.MenuOptions[]) => ({
+export const setMenuList = (menuList: MenuNamespace.MenuOptions[]) => ({
 	type: types.SET_MENU_LIST,
 	menuList
 });
@@ -17,7 +18,7 @@ export const setMenuList = (menuList: Menu.MenuOptions[]) => ({
 // ? 下面方法仅为测试使用，不参与任何功能开发
 interface MenuProps {
 	type: string;
-	menuList: Menu.MenuOptions[];
+	menuList: MenuNamespace.MenuOptions[];
 }
 // * redux-thunk
 export const getMenuListActionThunk = () => {
@@ -25,7 +26,7 @@ export const getMenuListActionThunk = () => {
 		const res = await getMenuList();
 		dispatch({
 			type: types.SET_MENU_LIST,
-			menuList: (res.data as Menu.MenuOptions[]) ?? []
+			menuList: (res.data as MenuNamespace.MenuOptions[]) ?? []
 		});
 	};
 };
