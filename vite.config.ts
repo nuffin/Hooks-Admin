@@ -100,7 +100,8 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 					entryFileNames: "assets/js/[name]-[hash].js",
 					assetFileNames: "assets/[ext]/[name]-[hash].[ext]"
 				}
-			}
+			},
+			sourcemap: viteEnv.VITE_BUILD_SOURCEMAP || false
 		}
 	};
 });
